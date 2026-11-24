@@ -1,0 +1,7 @@
+CALL_OUTCOME,loans_first_call,default_rate_first_call,loans_any_call,default_rate_any_call
+No answer,1984,0.38,3291,0.528
+Spoke - promise to pay,1384,0.309,3650,0.118
+Spoke - query raised,355,0.431,1009,0.67
+Spoke - refused to pay,232,1.0,933,1.0
+Voicemail,1208,0.312,2471,0.525
+Wrong number,632,0.671,632,0.671

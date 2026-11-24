@@ -1,0 +1,16 @@
+example,loan_id,predicted_prob,actual_default_30,feature,value,shap
+High risk,L1029882,0.729,False,phone_valid,0,0.505
+High risk,L1029882,0.729,False,tenure_days_at_disbursement,1147,0.142
+High risk,L1029882,0.729,False,sms_invalid_number,1.0,0.139
+High risk,L1029882,0.729,False,sms_failed_before_scoring,2.0,0.113
+High risk,L1029882,0.729,False,n_payment_attempts_before_scoring,0.0,0.072
+Middle risk,L1037966,0.353,False,days_since_payday_at_due,3.0,-0.216
+Middle risk,L1037966,0.353,False,sms_failed_before_scoring,2.0,0.188
+Middle risk,L1037966,0.353,False,acquisition_channel,Comparison site,0.102
+Middle risk,L1037966,0.353,False,phone_valid,1,-0.1
+Middle risk,L1037966,0.353,False,principal_gbp,270,0.096
+Low risk,L1035326,0.136,False,credit_score,692.0,-0.306
+Low risk,L1035326,0.136,False,employment_status,Unknown,-0.133
+Low risk,L1035326,0.136,False,last_failure_reason,PROCESSOR_TIMEOUT,-0.118
+Low risk,L1035326,0.136,False,acquisition_channel,Organic app store,-0.11
+Low risk,L1035326,0.136,False,phone_valid,1,-0.109

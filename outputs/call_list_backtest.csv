@@ -1,0 +1,9 @@
+capacity_per_day,ordering,defaults_reached_share,defaulting_balance_reached_share,defaults_reached_by_day_7_share,defaulting_balance_reached_by_day_7_share,median_first_call_day_for_defaults,calls_made,calls_to_invalid_numbers_share,calls_to_accounts_that_repaid_by_day_30_share,daily_share_of_defaulting_balance_on_list
+94,Alphabetical (current),0.395,0.407,0.281,0.29,1.0,9673,0.139,0.347,0.171
+94,Random,0.42,0.419,0.314,0.314,1.0,9674,0.114,0.33,0.18
+94,"Risk only, valid numbers",0.482,0.497,0.364,0.38,1.0,9559,0.0,0.309,0.277
+94,"New list: risk x balance, valid numbers",0.465,0.621,0.367,0.552,1.0,9554,0.0,0.319,0.452
+264,Alphabetical (current),0.777,0.778,0.722,0.725,1.0,23822,0.124,0.351,0.557
+264,Random,0.784,0.782,0.747,0.745,1.0,23801,0.116,0.34,0.576
+264,"Risk only, valid numbers",0.836,0.839,0.809,0.817,1.0,22950,0.0,0.358,0.824
+264,"New list: risk x balance, valid numbers",0.833,0.843,0.798,0.829,1.0,22971,0.0,0.364,0.89

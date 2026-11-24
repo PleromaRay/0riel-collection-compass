@@ -1,0 +1,59 @@
+feature,definition,source,reason,available_at_scoring,used_in_model,missing_%_model_B
+principal_gbp,Amount lent (GBP),fact_loans.PRINCIPAL_AMOUNT_GBP,Larger loans are harder to repay,"Yes, set at disbursement",Yes,0.0
+total_repayable_gbp,Amount due at the due date (GBP),fact_loans.TOTAL_REPAYABLE_GBP,Size of the repayment,"Yes, set at disbursement",Yes,0.0
+cost_of_credit_pct,"Total repayable / principal - 1, as a percentage",fact_loans,Pricing reflects risk and affordability,"Yes, set at disbursement",Yes,0.0
+term_days,Loan term in days,dim_loan_status.TERM_DAYS,Term length affects repayment,"Yes, set at disbursement",Yes,0.0
+repayment_method,"Card auto-debit, in-app card payment or bank transfer",dim_loan_status.REPAYMENT_METHOD,Manual methods need the customer to act,Assumed set at disbursement; confirm with the analyst,Yes,0.0
+customer_loan_number,"1 = first loan with Oriel, 2 = second, and so on",dim_loan_status.CUSTOMER_LOAN_NUMBER,Repeat borrowers have a track record,Yes,Yes,0.0
+due_day_of_week,Day of week of the due date (0 = Monday),fact_loans.DUE_DATE,Weekend due dates may be missed,Yes,Yes,0.0
+due_on_weekend,1 if the due date is a Saturday or Sunday,fact_loans.DUE_DATE,As above,Yes,Yes,0.0
+due_day_of_month,Day of month of the due date,fact_loans.DUE_DATE,Links to pay cycles,Yes,Yes,0.0
+n_payment_attempts_before_scoring,Payment attempts before scoring (Model B: up to the end of the due date),fact_payments,Shows engagement and auto-debit retries,"Yes, before the scoring time",Yes,0.0
+n_failed_attempts_before_scoring,Failed payment attempts before scoring,fact_payments.PAYMENT_STATUS,Failed debits signal a cash shortfall or card problem,"Yes, before the scoring time",Yes,0.0
+last_failure_reason,Reason for the last failed attempt before scoring (or none),fact_payments.FAILURE_REASON,Insufficient funds differs from a technical timeout,"Yes, before the scoring time",Yes,0.0
+share_paid_before_scoring,Share of the total repayable paid before scoring,fact_payments (Success rows only),Part-payers may be trying but short,"Yes, before the scoring time",Yes,0.0
+prior_loans_due,Customer's earlier loans already past their due date,fact_loans + fact_payments,Size of track record,"Yes, only loans already due",Yes,0.0
+prior_late_count,Earlier loans not fully repaid by their own due date,fact_loans + fact_payments,Past lateness predicts future lateness,"Yes, only loans already due",Yes,0.0
+prior_late_rate,prior_late_count / prior_loans_due (blank if no earlier loans),derived,"As above, scaled",Yes,Yes,43.9
+prior_default30_count,"Earlier loans unpaid 30 days after due, where already known",fact_loans + fact_payments,Strong history signal,"Yes, only outcomes known by scoring",Yes,0.0
+prior_open_overdue_loans,Earlier loans still unpaid at the scoring time,fact_loans + fact_payments,Several debts in arrears,Yes,Yes,0.0
+prior_calls,Collection calls to this customer before scoring,fact_collection_calls,Previous collections contact,"Yes, calls before the scoring time",Yes,0.0
+prior_promises_to_pay,Earlier calls ending in a promise to pay,fact_collection_calls.CALL_OUTCOME,Engagement with collections,Yes,Yes,0.0
+prior_refusals,Earlier calls ending in a refusal to pay,fact_collection_calls.CALL_OUTCOME,Unwillingness to pay,Yes,Yes,0.0
+prior_wrong_number_calls,Earlier calls ending as a wrong number,fact_collection_calls.CALL_OUTCOME,Contactability,Yes,Yes,0.0
+bureau_available,1 if a bureau pull exists on or before disbursement,fact_bureau_pulls,Missing bureau data is itself informative,Yes,Yes,0.0
+bureau_thin_file,1 if the bureau file is thin (no score),fact_bureau_pulls.FILE_STATUS,Little credit history,"Yes, pull on or before disbursement",Yes,7.4
+credit_score,Bureau credit score (0 treated as missing),fact_bureau_pulls.CREDIT_SCORE,General creditworthiness,"Yes, pull on or before disbursement",Yes,17.7
+ccj_flag,County court judgment flag,fact_bureau_pulls.CCJ_FLAG,Serious past default,Yes,Yes,17.1
+enquiries_6m,Credit enquiries in the last 6 months,fact_bureau_pulls.ENQUIRIES_6M,Searching for credit,Yes,Yes,17.1
+missed_payments_12m,Missed payments elsewhere in the last 12 months,fact_bureau_pulls.MISSED_PAYMENTS_12M,Arrears with other lenders,Yes,Yes,17.1
+active_credit_accounts,Number of active credit accounts,fact_bureau_pulls.ACTIVE_CREDIT_ACCOUNTS,Level of borrowing,Yes,Yes,17.1
+unsecured_debt_gbp,Total unsecured debt (GBP),fact_bureau_pulls.TOTAL_UNSECURED_DEBT_GBP,Level of borrowing,Yes,Yes,17.1
+days_since_bureau_pull,Days between the bureau pull and disbursement,fact_bureau_pulls.PULL_DATE,Older bureau data is less reliable,Yes,Yes,7.4
+employment_status,Employment status (Unknown if blank),dim_customer.EMPLOYMENT_STATUS,Income stability; also checked for fairness,Assumed captured at signup,Yes,0.0
+income_band,Monthly income band (Unknown if blank),dim_customer.MONTHLY_INCOME_BAND,Affordability; also checked for fairness,Assumed captured at signup,Yes,0.0
+acquisition_channel,How the customer was acquired,dim_customer.ACQUISITION_CHANNEL,Channel quality differs,Yes,Yes,0.0
+device_os,iOS or Android,dim_customer.DEVICE_OS,"App behaviour differs; possible income proxy, so review",Yes,Yes,0.0
+sms_opt_in,1 if the customer opted in to SMS,dim_customer.SMS_OPT_IN,Reachability by SMS,Assumed current value; confirm,Yes,0.0
+phone_valid,1 if the phone number is valid,dim_customer.PHONE_VALID,Reachability,Assumed current value; confirm,Yes,0.0
+tenure_days_at_disbursement,Days from signup to disbursement,dim_customer.SIGNUP_DATE,Newer customers are less known,Yes,Yes,0.0
+payday_known,1 if a payday day of month is recorded,dim_customer.PAYDAY_DAY_OF_MONTH,Only recorded for some employed customers,Yes,Yes,0.0
+days_since_payday_at_due,Days from the most recent payday to the due date (blank if unknown),dim_customer.PAYDAY_DAY_OF_MONTH,Due dates long after payday are harder,Yes,Yes,57.0
+pre_due_sms_delivered,1 if the day -1 reminder SMS was delivered,fact_sms_log,Whether the reminder reached them,"Yes, sent on day -1",Yes,0.0
+due_day_sms_delivered,1 if the due-day reminder SMS was delivered,fact_sms_log,As above,Yes for Model B; always 0 for Model A (sent after 00:00 on the due date),Yes,0.0
+sms_failed_before_scoring,SMS for this loan that failed before scoring,fact_sms_log.DELIVERY_STATUS,Contactability,Yes,Yes,0.0
+sms_invalid_number,1 if any SMS failed with INVALID_NUMBER,fact_sms_log.FAILURE_CODE,Bad contact details,Yes,Yes,0.0
+app_opens_14d,App opens in the 14 days up to scoring,fact_app_events,Engagement,Yes,Yes,0.0
+repayment_screen_views_14d,Repayment screen views in 14 days,fact_app_events,Intent to pay,Yes,Yes,0.0
+tap_pay_now_14d,Pay now taps in 14 days,fact_app_events,Intent to pay,Yes,Yes,0.0
+payment_errors_14d,Payment errors shown in 14 days,fact_app_events,Tried but failed,Yes,Yes,0.0
+sms_link_clicks_14d,SMS link clicks in 14 days,fact_app_events,Responds to SMS,Yes,Yes,0.0
+debit_failed_notif_opened_14d,Debit failed notifications opened in 14 days,fact_app_events,Aware of the failed debit,Yes,Yes,0.0
+app_events_14d,All app events in 14 days,fact_app_events,Overall engagement,Yes,Yes,0.0
+age_band,Age band at the due date (from year of birth),dim_customer.YEAR_OF_BIRTH,"FAIRNESS CHECK ONLY, not a model feature (protected characteristic)",n/a,No,0.0
+region,UK region,dim_customer.REGION,"FAIRNESS CHECK ONLY, not a model feature (possible proxy)",n/a,No,0.0
+Days Overdue / Loan Aging Category,Days from due date to the extract date,dim_loan_status,"EXCLUDED: leakage, measured at extract time",No,No,
+Aging Classification / DAYS_PAST_DUE,Position at extract time,"fact_loans, fact_payments",EXCLUDED: leakage,No,No,
+LOAN_STATUS / CLOSED_DATE,Final status and closure date,dim_loan_status,EXCLUDED: this is the outcome,No,No,
+Snapshot balances and aging,Balances in November 2026,fact_loan_balance_snapshot_*,EXCLUDED: leakage,No,No,
+"Day 1 and day 3 overdue SMS, nudges, calls on this loan",Contact from day 1 onwards,"fact_sms_log, fact_nudges, fact_collection_calls",EXCLUDED: after the scoring point (used in Step 13),No,No,

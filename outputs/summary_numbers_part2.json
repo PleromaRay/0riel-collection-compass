@@ -1,0 +1,416 @@
+{
+ "leakage_max_single_feature_auc": {
+  "feature": "credit_score",
+  "single_feature_auc": 0.552
+ },
+ "gap_check": [
+  {
+   "model": "B (day 1)",
+   "train_due_before": "2026-07-01",
+   "train_loans": "2588",
+   "test_auc": "0.6056",
+   "test_pr_auc": "0.5103"
+  },
+  {
+   "model": "B (day 1)",
+   "train_due_before": "2026-06-01",
+   "train_loans": "1798",
+   "test_auc": "0.5727",
+   "test_pr_auc": "0.4694"
+  },
+  {
+   "model": "A (due date)",
+   "train_due_before": "2026-07-01",
+   "train_loans": "16202",
+   "test_auc": "0.6929",
+   "test_pr_auc": "0.2442"
+  },
+  {
+   "model": "A (due date)",
+   "train_due_before": "2026-06-01",
+   "train_loans": "12914",
+   "test_auc": "0.6893",
+   "test_pr_auc": "0.2454"
+  }
+ ],
+ "operating_points_B": [
+  {
+   "cut_off": "Probability 0.50 (Step 7)",
+   "probability_threshold": 0.5,
+   "flagged_share": 0.134,
+   "precision": 0.581,
+   "recall": 0.191
+  },
+  {
+   "cut_off": "Top 10% of scores",
+   "probability_threshold": 0.531,
+   "flagged_share": 0.1,
+   "precision": 0.606,
+   "recall": 0.149
+  },
+  {
+   "cut_off": "Top 20% of scores",
+   "probability_threshold": 0.459,
+   "flagged_share": 0.2,
+   "precision": 0.547,
+   "recall": 0.268
+  },
+  {
+   "cut_off": "Top 30% of scores",
+   "probability_threshold": 0.416,
+   "flagged_share": 0.3,
+   "precision": 0.522,
+   "recall": 0.384
+  }
+ ],
+ "calls_by_phone_valid": [
+  {
+   "phone_valid": "N",
+   "calls": 2458,
+   "rpc_rate": 0.0,
+   "ptp_rate": 0.0,
+   "paid_within_48h": 0.047
+  },
+  {
+   "phone_valid": "Y",
+   "calls": 17124,
+   "rpc_rate": 0.385,
+   "ptp_rate": 0.234,
+   "paid_within_48h": 0.127
+  }
+ ],
+ "calls_by_hour_band_valid": [
+  {
+   "hour_band": "09:00-11:59",
+   "calls": "3040",
+   "rpc_rate": "0.305",
+   "ptp_rate": "0.184",
+   "paid_within_48h": "0.1"
+  },
+  {
+   "hour_band": "12:00-16:59",
+   "calls": "9818",
+   "rpc_rate": "0.372",
+   "ptp_rate": "0.229",
+   "paid_within_48h": "0.129"
+  },
+  {
+   "hour_band": "17:00-19:59",
+   "calls": "4266",
+   "rpc_rate": "0.472",
+   "ptp_rate": "0.282",
+   "paid_within_48h": "0.142"
+  }
+ ],
+ "call_gap": [
+  {
+   "day": "1.0",
+   "calls": "9",
+   "share": "0.001"
+  },
+  {
+   "day": "2.0",
+   "calls": "3769",
+   "share": "0.286"
+  },
+  {
+   "day": "3.0",
+   "calls": "6879",
+   "share": "0.521"
+  },
+  {
+   "day": "4.0",
+   "calls": "2541",
+   "share": "0.193"
+  }
+ ],
+ "default_by_call_result": [
+  {
+   "CALL_OUTCOME": "No answer",
+   "loans_first_call": 1984,
+   "default_rate_first_call": 0.38,
+   "loans_any_call": 3291,
+   "default_rate_any_call": 0.528
+  },
+  {
+   "CALL_OUTCOME": "Spoke - promise to pay",
+   "loans_first_call": 1384,
+   "default_rate_first_call": 0.309,
+   "loans_any_call": 3650,
+   "default_rate_any_call": 0.118
+  },
+  {
+   "CALL_OUTCOME": "Spoke - query raised",
+   "loans_first_call": 355,
+   "default_rate_first_call": 0.431,
+   "loans_any_call": 1009,
+   "default_rate_any_call": 0.67
+  },
+  {
+   "CALL_OUTCOME": "Spoke - refused to pay",
+   "loans_first_call": 232,
+   "default_rate_first_call": 1.0,
+   "loans_any_call": 933,
+   "default_rate_any_call": 1.0
+  },
+  {
+   "CALL_OUTCOME": "Voicemail",
+   "loans_first_call": 1208,
+   "default_rate_first_call": 0.312,
+   "loans_any_call": 2471,
+   "default_rate_any_call": 0.525
+  },
+  {
+   "CALL_OUTCOME": "Wrong number",
+   "loans_first_call": 632,
+   "default_rate_first_call": 0.671,
+   "loans_any_call": 632,
+   "default_rate_any_call": 0.671
+  }
+ ],
+ "nudges_by_phone": [
+  {
+   "CHANNEL": "Email",
+   "phone_valid": "N",
+   "sent": 96,
+   "open_rate": 0.24,
+   "click_rate": 0.094,
+   "paid_within_48h": 0.021
+  },
+  {
+   "CHANNEL": "Email",
+   "phone_valid": "Y",
+   "sent": 822,
+   "open_rate": 0.229,
+   "click_rate": 0.107,
+   "paid_within_48h": 0.04
+  },
+  {
+   "CHANNEL": "In-app push",
+   "phone_valid": "N",
+   "sent": 104,
+   "open_rate": 0.404,
+   "click_rate": 0.154,
+   "paid_within_48h": 0.019
+  },
+  {
+   "CHANNEL": "In-app push",
+   "phone_valid": "Y",
+   "sent": 822,
+   "open_rate": 0.438,
+   "click_rate": 0.197,
+   "paid_within_48h": 0.047
+  },
+  {
+   "CHANNEL": "WhatsApp",
+   "phone_valid": "N",
+   "sent": 79,
+   "open_rate": 0.734,
+   "click_rate": 0.418,
+   "paid_within_48h": 0.013
+  },
+  {
+   "CHANNEL": "WhatsApp",
+   "phone_valid": "Y",
+   "sent": 615,
+   "open_rate": 0.725,
+   "click_rate": 0.374,
+   "paid_within_48h": 0.063
+  }
+ ],
+ "backtest": [
+  {
+   "capacity_per_day": 94,
+   "ordering": "Alphabetical (current)",
+   "defaults_reached_share": 0.395,
+   "defaulting_balance_reached_share": 0.407,
+   "defaults_reached_by_day_7_share": 0.281,
+   "defaulting_balance_reached_by_day_7_share": 0.29,
+   "median_first_call_day_for_defaults": 1.0,
+   "calls_made": 9673,
+   "calls_to_invalid_numbers_share": 0.139,
+   "calls_to_accounts_that_repaid_by_day_30_share": 0.347,
+   "daily_share_of_defaulting_balance_on_list": 0.171
+  },
+  {
+   "capacity_per_day": 94,
+   "ordering": "Random",
+   "defaults_reached_share": 0.42,
+   "defaulting_balance_reached_share": 0.419,
+   "defaults_reached_by_day_7_share": 0.314,
+   "defaulting_balance_reached_by_day_7_share": 0.314,
+   "median_first_call_day_for_defaults": 1.0,
+   "calls_made": 9674,
+   "calls_to_invalid_numbers_share": 0.114,
+   "calls_to_accounts_that_repaid_by_day_30_share": 0.33,
+   "daily_share_of_defaulting_balance_on_list": 0.18
+  },
+  {
+   "capacity_per_day": 94,
+   "ordering": "Risk only, valid numbers",
+   "defaults_reached_share": 0.482,
+   "defaulting_balance_reached_share": 0.497,
+   "defaults_reached_by_day_7_share": 0.364,
+   "defaulting_balance_reached_by_day_7_share": 0.38,
+   "median_first_call_day_for_defaults": 1.0,
+   "calls_made": 9559,
+   "calls_to_invalid_numbers_share": 0.0,
+   "calls_to_accounts_that_repaid_by_day_30_share": 0.309,
+   "daily_share_of_defaulting_balance_on_list": 0.277
+  },
+  {
+   "capacity_per_day": 94,
+   "ordering": "New list: risk x balance, valid numbers",
+   "defaults_reached_share": 0.465,
+   "defaulting_balance_reached_share": 0.621,
+   "defaults_reached_by_day_7_share": 0.367,
+   "defaulting_balance_reached_by_day_7_share": 0.552,
+   "median_first_call_day_for_defaults": 1.0,
+   "calls_made": 9554,
+   "calls_to_invalid_numbers_share": 0.0,
+   "calls_to_accounts_that_repaid_by_day_30_share": 0.319,
+   "daily_share_of_defaulting_balance_on_list": 0.452
+  },
+  {
+   "capacity_per_day": 264,
+   "ordering": "Alphabetical (current)",
+   "defaults_reached_share": 0.777,
+   "defaulting_balance_reached_share": 0.778,
+   "defaults_reached_by_day_7_share": 0.722,
+   "defaulting_balance_reached_by_day_7_share": 0.725,
+   "median_first_call_day_for_defaults": 1.0,
+   "calls_made": 23822,
+   "calls_to_invalid_numbers_share": 0.124,
+   "calls_to_accounts_that_repaid_by_day_30_share": 0.351,
+   "daily_share_of_defaulting_balance_on_list": 0.557
+  },
+  {
+   "capacity_per_day": 264,
+   "ordering": "Random",
+   "defaults_reached_share": 0.784,
+   "defaulting_balance_reached_share": 0.782,
+   "defaults_reached_by_day_7_share": 0.747,
+   "defaulting_balance_reached_by_day_7_share": 0.745,
+   "median_first_call_day_for_defaults": 1.0,
+   "calls_made": 23801,
+   "calls_to_invalid_numbers_share": 0.116,
+   "calls_to_accounts_that_repaid_by_day_30_share": 0.34,
+   "daily_share_of_defaulting_balance_on_list": 0.576
+  },
+  {
+   "capacity_per_day": 264,
+   "ordering": "Risk only, valid numbers",
+   "defaults_reached_share": 0.836,
+   "defaulting_balance_reached_share": 0.839,
+   "defaults_reached_by_day_7_share": 0.809,
+   "defaulting_balance_reached_by_day_7_share": 0.817,
+   "median_first_call_day_for_defaults": 1.0,
+   "calls_made": 22950,
+   "calls_to_invalid_numbers_share": 0.0,
+   "calls_to_accounts_that_repaid_by_day_30_share": 0.358,
+   "daily_share_of_defaulting_balance_on_list": 0.824
+  },
+  {
+   "capacity_per_day": 264,
+   "ordering": "New list: risk x balance, valid numbers",
+   "defaults_reached_share": 0.833,
+   "defaulting_balance_reached_share": 0.843,
+   "defaults_reached_by_day_7_share": 0.798,
+   "defaulting_balance_reached_by_day_7_share": 0.829,
+   "median_first_call_day_for_defaults": 1.0,
+   "calls_made": 22971,
+   "calls_to_invalid_numbers_share": 0.0,
+   "calls_to_accounts_that_repaid_by_day_30_share": 0.364,
+   "daily_share_of_defaulting_balance_on_list": 0.89
+  }
+ ],
+ "uplift_input": [
+  {
+   "capacity_per_day": 94,
+   "test_period_days": "2 Jul to 4 Nov 2026",
+   "extra_defaulting_balance_reached_gbp": 187572.0,
+   "assumed_contact_rate_valid_numbers": 0.385,
+   "assumed_promise_rate_when_contacted": 0.608,
+   "assumed_promise_kept_rate": 0.684,
+   "illustrative_extra_recovery_gbp": 30038.0
+  },
+  {
+   "capacity_per_day": 264,
+   "test_period_days": "2 Jul to 4 Nov 2026",
+   "extra_defaulting_balance_reached_gbp": 56973.0,
+   "assumed_contact_rate_valid_numbers": 0.385,
+   "assumed_promise_rate_when_contacted": 0.608,
+   "assumed_promise_kept_rate": 0.684,
+   "illustrative_extra_recovery_gbp": 9124.0
+  }
+ ],
+ "daily_run": {
+  "run_date": "2026-11-05",
+  "data_used_up_to": "2026-11-04",
+  "open_loans_1_to_30_days_past_due": 371,
+  "due_today": 69,
+  "actions": {
+   "Call": 196,
+   "Team leader review": 69,
+   "Digital only": 55,
+   "Promise reminder": 27,
+   "Rest day": 24
+  },
+  "call_candidates": 196,
+  "calls_planned": 196,
+  "calls_per_agent_capacity": 11,
+  "capacity_rule": "90th percentile of calls per agent per day, last 120 days (2371 agent-days)",
+  "agents": 24,
+  "balance_on_call_list_gbp": 134223.94,
+  "expected_balance_at_risk_on_list_gbp": 52625.98,
+  "expected_balance_at_risk_all_open_gbp": 102836.27,
+  "calls_by_window": {
+   "17:00-19:59": 110,
+   "12:00-17:29": 86
+  },
+  "risk_band_on_list": {
+   "Medium": 165,
+   "Low": 20,
+   "High": 11
+  }
+ },
+ "daily_run_tight_capacity": {
+  "run_date": "2026-11-05",
+  "data_used_up_to": "2026-11-04",
+  "open_loans_1_to_30_days_past_due": 371,
+  "due_today": 69,
+  "actions": {
+   "Call": 196,
+   "Team leader review": 69,
+   "Digital only": 55,
+   "Promise reminder": 27,
+   "Rest day": 24
+  },
+  "call_candidates": 196,
+  "calls_planned": 96,
+  "calls_per_agent_capacity": 4,
+  "capacity_rule": "90th percentile of calls per agent per day, last 120 days (2371 agent-days)",
+  "agents": 24,
+  "balance_on_call_list_gbp": 95088.0,
+  "expected_balance_at_risk_on_list_gbp": 40057.74,
+  "expected_balance_at_risk_all_open_gbp": 102836.27,
+  "calls_by_window": {
+   "12:00-17:29": 42,
+   "17:00-19:59": 40,
+   "09:00-11:59": 14
+  },
+  "risk_band_on_list": {
+   "Medium": 85,
+   "High": 11
+  }
+ },
+ "rule_checks": {
+  "no invalid phone numbers on the call list": true,
+  "no account appears twice": true,
+  "no agent over capacity": true,
+  "evening window only given to the partner team": true,
+  "all accounts 1 to 30 days past due": true,
+  "ranked by expected balance at risk": true,
+  "no open promise or refusal on the call list": true
+ }
+}

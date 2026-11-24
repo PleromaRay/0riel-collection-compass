@@ -1,0 +1,4 @@
+risk_band,loans,default_30_rate,mean_balance,share_of_loans,calls,rpc_rate,ptp_rate,paid_48h_after_overdue_sms,nudges,paid_48h_after_nudge
+Low (<25%),462,0.297,542.322,0.134,1340,0.404,0.266,0.043,187,0.048
+Medium (25-50%),2519,0.397,609.969,0.732,7844,0.373,0.219,0.036,982,0.041
+High (50%+),461,0.581,577.57,0.134,1608,0.124,0.072,0.053,188,0.027

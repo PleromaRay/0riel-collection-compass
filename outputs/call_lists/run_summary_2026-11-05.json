@@ -1,0 +1,30 @@
+{
+ "run_date": "2026-11-05",
+ "data_used_up_to": "2026-11-04",
+ "open_loans_1_to_30_days_past_due": 371,
+ "due_today": 69,
+ "actions": {
+  "Call": 196,
+  "Team leader review": 69,
+  "Digital only": 55,
+  "Promise reminder": 27,
+  "Rest day": 24
+ },
+ "call_candidates": 196,
+ "calls_planned": 196,
+ "calls_per_agent_capacity": 11,
+ "capacity_rule": "90th percentile of calls per agent per day, last 120 days (2371 agent-days)",
+ "agents": 24,
+ "balance_on_call_list_gbp": 134223.94,
+ "expected_balance_at_risk_on_list_gbp": 52625.98,
+ "expected_balance_at_risk_all_open_gbp": 102836.27,
+ "calls_by_window": {
+  "17:00-19:59": 110,
+  "12:00-17:29": 86
+ },
+ "risk_band_on_list": {
+  "Medium": 165,
+  "Low": 20,
+  "High": 11
+ }
+}

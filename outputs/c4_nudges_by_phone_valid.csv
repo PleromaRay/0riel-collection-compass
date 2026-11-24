@@ -1,0 +1,7 @@
+CHANNEL,phone_valid,sent,open_rate,click_rate,paid_within_48h
+Email,N,96,0.24,0.094,0.021
+Email,Y,822,0.229,0.107,0.04
+In-app push,N,104,0.404,0.154,0.019
+In-app push,Y,822,0.438,0.197,0.047
+WhatsApp,N,79,0.734,0.418,0.013
+WhatsApp,Y,615,0.725,0.374,0.063

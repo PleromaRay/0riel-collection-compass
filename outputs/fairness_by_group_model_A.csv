@@ -1,0 +1,29 @@
+attribute,group,loans,actual_default_rate,flagged_rate,false_positive_rate,false_negative_rate,mean_predicted,calibration_gap,group_auc,small_group
+age_band,18-24,2318,0.121,0.21,0.18,0.573,0.067,-0.054,0.683,False
+age_band,25-34,4489,0.103,0.198,0.171,0.569,0.066,-0.037,0.692,False
+age_band,35-44,4133,0.112,0.195,0.162,0.545,0.066,-0.046,0.701,False
+age_band,45+,1796,0.111,0.205,0.174,0.55,0.066,-0.045,0.69,False
+region,East Midlands,875,0.098,0.184,0.167,0.663,0.064,-0.035,0.656,False
+region,East of England,775,0.095,0.208,0.181,0.541,0.065,-0.03,0.673,False
+region,London,2112,0.099,0.194,0.159,0.495,0.065,-0.035,0.709,False
+region,North East,508,0.1,0.181,0.142,0.471,0.062,-0.039,0.727,False
+region,North West,1661,0.123,0.214,0.185,0.58,0.069,-0.055,0.689,False
+region,Northern Ireland,603,0.108,0.201,0.175,0.585,0.067,-0.041,0.675,False
+region,Scotland,1017,0.114,0.194,0.162,0.56,0.065,-0.049,0.688,False
+region,South East,1379,0.126,0.179,0.145,0.586,0.065,-0.061,0.715,False
+region,South West,914,0.107,0.205,0.172,0.52,0.068,-0.039,0.704,False
+region,Wales,657,0.105,0.201,0.167,0.507,0.066,-0.039,0.72,False
+region,West Midlands,1086,0.117,0.227,0.197,0.543,0.07,-0.047,0.689,False
+region,Yorkshire and the Humber,1149,0.113,0.207,0.186,0.631,0.067,-0.046,0.652,False
+employment_status,Employed full-time,5688,0.093,0.155,0.132,0.616,0.058,-0.035,0.678,False
+employment_status,Employed part-time,1323,0.108,0.229,0.192,0.462,0.071,-0.037,0.736,False
+employment_status,Gig / contract,2023,0.14,0.249,0.216,0.548,0.075,-0.065,0.673,False
+employment_status,Self-employed,2454,0.122,0.231,0.201,0.552,0.073,-0.049,0.688,False
+employment_status,Student,504,0.117,0.25,0.216,0.492,0.074,-0.043,0.682,False
+employment_status,Unemployed,525,0.133,0.257,0.207,0.414,0.078,-0.056,0.752,False
+employment_status,Unknown,219,0.105,0.132,0.117,0.739,0.054,-0.051,0.612,False
+income_band,"Under £1,000",2759,0.12,0.227,0.187,0.482,0.071,-0.049,0.71,False
+income_band,Unknown,605,0.096,0.197,0.165,0.5,0.067,-0.029,0.727,False
+income_band,"£1,000 - £1,999",4372,0.111,0.199,0.172,0.583,0.066,-0.045,0.68,False
+income_band,"£2,000 - £2,999",3418,0.111,0.197,0.17,0.588,0.066,-0.046,0.684,False
+income_band,"£3,000 and over",1582,0.095,0.163,0.139,0.607,0.059,-0.035,0.704,False

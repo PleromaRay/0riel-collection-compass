@@ -1,0 +1,17 @@
+group,share_invalid_phone,attribute
+18-24,0.081,age_band
+25-34,0.104,age_band
+35-44,0.087,age_band
+45+,0.1,age_band
+East Midlands,0.085,region
+East of England,0.094,region
+London,0.092,region
+North East,0.076,region
+North West,0.104,region
+Northern Ireland,0.093,region
+Scotland,0.091,region
+South East,0.102,region
+South West,0.066,region
+Wales,0.106,region
+West Midlands,0.12,region
+Yorkshire and the Humber,0.075,region

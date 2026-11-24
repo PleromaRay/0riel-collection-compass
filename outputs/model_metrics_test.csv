@@ -1,0 +1,5 @@
+model,algorithm,test_loans,roc_auc,pr_auc,base_rate,capture_top10,capture_top20,default_rate_top10,train_auc,brier_corrected
+"B (day 1, main)",Logistic regression,3442,0.5835,0.4955,0.4082,0.1381,0.2591,0.5623,0.6612,0.2402
+"B (day 1, main)",LightGBM,3442,0.6056,0.5103,0.4082,0.1488,0.2683,0.6058,0.7626,0.2351
+"A (due date, early warning)",Logistic regression,12736,0.6894,0.2426,0.1103,0.2769,0.4441,0.3053,0.7469,0.0935
+"A (due date, early warning)",LightGBM,12736,0.6929,0.2442,0.1103,0.279,0.4406,0.3077,0.7632,0.0947

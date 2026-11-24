@@ -1,0 +1,5 @@
+cut_off,probability_threshold,flagged_share,precision,recall
+Probability 0.50 (Step 7),0.5,0.134,0.581,0.191
+Top 10% of scores,0.531,0.1,0.606,0.149
+Top 20% of scores,0.459,0.2,0.547,0.268
+Top 30% of scores,0.416,0.3,0.522,0.384

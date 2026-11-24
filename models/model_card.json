@@ -1,0 +1,35 @@
+{
+ "data_cutoff": "2026-11-04",
+ "model_B": {
+  "pos_weight": 1.5475285171102662,
+  "settings": {
+   "num_leaves": 7,
+   "min_child_samples": 100,
+   "n_estimators": 200,
+   "learning_rate": 0.03
+  },
+  "label": "Model B production refit (all loans with a known outcome)",
+  "trained_on_loans": 6030,
+  "trained_due_from": "2025-10-23",
+  "trained_due_to": "2026-10-05",
+  "train_default_rate": 0.3925373134328358,
+  "evaluated_test_auc": 0.6055699103943591,
+  "top20_threshold": 0.47071439623557804
+ },
+ "model_A": {
+  "pos_weight": 11.225602027883397,
+  "settings": {
+   "num_leaves": 4,
+   "min_child_samples": 200,
+   "n_estimators": 300,
+   "learning_rate": 0.02
+  },
+  "label": "Model A production refit (all loans with a known outcome)",
+  "trained_on_loans": 28938,
+  "trained_due_from": "2025-10-15",
+  "trained_due_to": "2026-10-05",
+  "train_default_rate": 0.0817955629276384,
+  "evaluated_test_auc": 0.6929035735115237,
+  "top20_threshold": 0.12213001764689227
+ }
+}

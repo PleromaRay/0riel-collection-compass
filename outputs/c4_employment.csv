@@ -1,0 +1,7 @@
+EMPLOYMENT_STATUS,loans,on_time_rate,default_30_rate
+Employed full-time,17069,0.858,0.052
+Employed part-time,3852,0.828,0.065
+Gig / contract,5844,0.817,0.079
+Self-employed,7262,0.833,0.07
+Student,1489,0.831,0.07
+Unemployed,1551,0.798,0.075

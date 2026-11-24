@@ -1,0 +1,4 @@
+risk_band,calls,rpc_rate,ptp_rate,paid_within_48h,share_invalid_phone
+Low (<25%),1340,0.404,0.266,0.142,0.0
+Medium (25-50%),7739,0.378,0.222,0.121,0.012
+High (50%+),524,0.38,0.221,0.099,0.633

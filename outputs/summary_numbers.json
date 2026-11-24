@@ -1,0 +1,249 @@
+{
+ "data_cutoff": "2026-11-04",
+ "n_loans": 41815,
+ "n_known_30": 37685,
+ "n_scored_B": 6030,
+ "base_rate_B": 0.3925373134328358,
+ "n_scored_A": 28938,
+ "base_rate_A": 0.0817955629276384,
+ "split_B": [
+  {
+   "set": "train",
+   "due_from": "2025-10-23",
+   "due_to": "2026-06-30",
+   "loans": "2588",
+   "defaults": "962",
+   "default_rate": "0.3717"
+  },
+  {
+   "set": "test",
+   "due_from": "2026-07-01",
+   "due_to": "2026-10-05",
+   "loans": "3442",
+   "defaults": "1405",
+   "default_rate": "0.4082"
+  }
+ ],
+ "split_A": [
+  {
+   "set": "train",
+   "due_from": "2025-10-15",
+   "due_to": "2026-06-30",
+   "loans": "16202",
+   "defaults": "962",
+   "default_rate": "0.0594"
+  },
+  {
+   "set": "test",
+   "due_from": "2026-07-01",
+   "due_to": "2026-10-05",
+   "loans": "12736",
+   "defaults": "1405",
+   "default_rate": "0.1103"
+  }
+ ],
+ "metrics": [
+  {
+   "model": "B (day 1, main)",
+   "algorithm": "Logistic regression",
+   "test_loans": 3442,
+   "roc_auc": 0.5835,
+   "pr_auc": 0.4955,
+   "base_rate": 0.4082,
+   "capture_top10": 0.1381,
+   "capture_top20": 0.2591,
+   "default_rate_top10": 0.5623,
+   "train_auc": 0.6612,
+   "brier_corrected": 0.2402
+  },
+  {
+   "model": "B (day 1, main)",
+   "algorithm": "LightGBM",
+   "test_loans": 3442,
+   "roc_auc": 0.6056,
+   "pr_auc": 0.5103,
+   "base_rate": 0.4082,
+   "capture_top10": 0.1488,
+   "capture_top20": 0.2683,
+   "default_rate_top10": 0.6058,
+   "train_auc": 0.7626,
+   "brier_corrected": 0.2351
+  },
+  {
+   "model": "A (due date, early warning)",
+   "algorithm": "Logistic regression",
+   "test_loans": 12736,
+   "roc_auc": 0.6894,
+   "pr_auc": 0.2426,
+   "base_rate": 0.1103,
+   "capture_top10": 0.2769,
+   "capture_top20": 0.4441,
+   "default_rate_top10": 0.3053,
+   "train_auc": 0.7469,
+   "brier_corrected": 0.0935
+  },
+  {
+   "model": "A (due date, early warning)",
+   "algorithm": "LightGBM",
+   "test_loans": 12736,
+   "roc_auc": 0.6929,
+   "pr_auc": 0.2442,
+   "base_rate": 0.1103,
+   "capture_top10": 0.279,
+   "capture_top20": 0.4406,
+   "default_rate_top10": 0.3077,
+   "train_auc": 0.7632,
+   "brier_corrected": 0.0947
+  }
+ ],
+ "conf": [
+  [
+   1844,
+   193
+  ],
+  [
+   1137,
+   268
+  ]
+ ],
+ "conf_stats": {
+  "threshold": 0.5,
+  "flagged_share": 0.13393375944218477,
+  "precision": 0.5813449023861171,
+  "recall": 0.19074733096085408,
+  "false_positive_rate": 0.09474717722140402
+ },
+ "top_drivers_B": [
+  {
+   "feature": "phone_valid",
+   "mean_abs_shap": 0.14278669075424716
+  },
+  {
+   "feature": "credit_score",
+   "mean_abs_shap": 0.12105713963437176
+  },
+  {
+   "feature": "sms_failed_before_scoring",
+   "mean_abs_shap": 0.1045543156923808
+  },
+  {
+   "feature": "n_payment_attempts_before_scoring",
+   "mean_abs_shap": 0.08458750304735393
+  },
+  {
+   "feature": "last_failure_reason",
+   "mean_abs_shap": 0.07392539105081106
+  },
+  {
+   "feature": "acquisition_channel",
+   "mean_abs_shap": 0.06618461902175193
+  },
+  {
+   "feature": "principal_gbp",
+   "mean_abs_shap": 0.06366085465148652
+  },
+  {
+   "feature": "days_since_payday_at_due",
+   "mean_abs_shap": 0.06004266147731117
+  },
+  {
+   "feature": "tenure_days_at_disbursement",
+   "mean_abs_shap": 0.05813725797647913
+  },
+  {
+   "feature": "enquiries_6m",
+   "mean_abs_shap": 0.053876945590946926
+  },
+  {
+   "feature": "customer_loan_number",
+   "mean_abs_shap": 0.0533547681230551
+  },
+  {
+   "feature": "total_repayable_gbp",
+   "mean_abs_shap": 0.048422143740275085
+  }
+ ],
+ "top_drivers_A": [
+  {
+   "feature": "pre_due_sms_delivered",
+   "mean_abs_shap": 0.3099163051325222
+  },
+  {
+   "feature": "credit_score",
+   "mean_abs_shap": 0.2884511860114853
+  },
+  {
+   "feature": "repayment_method",
+   "mean_abs_shap": 0.26801483439699814
+  },
+  {
+   "feature": "days_since_payday_at_due",
+   "mean_abs_shap": 0.1167580544082667
+  },
+  {
+   "feature": "employment_status",
+   "mean_abs_shap": 0.10848048255112179
+  },
+  {
+   "feature": "customer_loan_number",
+   "mean_abs_shap": 0.09077731735011453
+  },
+  {
+   "feature": "total_repayable_gbp",
+   "mean_abs_shap": 0.08272000132821335
+  },
+  {
+   "feature": "sms_failed_before_scoring",
+   "mean_abs_shap": 0.06596385813618587
+  },
+  {
+   "feature": "phone_valid",
+   "mean_abs_shap": 0.05930443655204886
+  },
+  {
+   "feature": "principal_gbp",
+   "mean_abs_shap": 0.054735285266186796
+  }
+ ],
+ "chosen_lgbm_B": "{'num_leaves': 7, 'min_child_samples': 100, 'n_estimators': 200, 'learning_rate': 0.03}",
+ "chosen_lgbm_A": "{'num_leaves': 4, 'min_child_samples': 200, 'n_estimators': 300, 'learning_rate': 0.02}",
+ "capacity": {
+  "days_with_calls": 106,
+  "calls_per_day_mean": 121.79245283018868,
+  "calls_per_day_median": 94.0,
+  "accounts_per_day_median": 94.0,
+  "agents_active_per_day_mean": 23.066037735849058,
+  "calls_per_active_agent_day": 5.280163599182004,
+  "weekdays_with_calls": [
+   "Friday",
+   "Monday",
+   "Saturday",
+   "Thursday",
+   "Tuesday",
+   "Wednesday"
+  ]
+ },
+ "cohort": [
+  {
+   "ordering": "Alphabetical (current)",
+   "top20_share_of_defaulting_balance": 0.1426,
+   "top20_share_of_defaults": 0.1502
+  },
+  {
+   "ordering": "Random",
+   "top20_share_of_defaulting_balance": 0.1952,
+   "top20_share_of_defaults": 0.1957
+  },
+  {
+   "ordering": "Risk only",
+   "top20_share_of_defaulting_balance": 0.2639,
+   "top20_share_of_defaults": 0.2676
+  },
+  {
+   "ordering": "Risk x balance",
+   "top20_share_of_defaulting_balance": 0.4592,
+   "top20_share_of_defaults": 0.2548
+  }
+ ],
+ "ptp_kept": 0.6843679880329095
+}

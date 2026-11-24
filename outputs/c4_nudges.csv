@@ -1,0 +1,4 @@
+CHANNEL,sent,open_rate,click_rate,paid_within_48h
+Email,918,0.23,0.106,0.038
+In-app push,926,0.434,0.192,0.044
+WhatsApp,694,0.726,0.379,0.058

@@ -1,0 +1,25 @@
+# Builds the daily call list every weekday morning and keeps it as a downloadable artifact.
+# Only switch this on if the data files are allowed to live in the repository. Real customer
+# data should never be pushed to a public repository.
+name: Daily call list
+
+on:
+  schedule:
+    - cron: '30 6 * * 1-6'     # 06:30 UTC, Monday to Saturday (07:30 UK time in summer)
+  workflow_dispatch:            # lets you run it by hand from the Actions tab
+
+jobs:
+  build-list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python train_and_save_models.py          # only needed if models/ is not committed
+      - run: python daily_call_list.py               # add --run-date YYYY-MM-DD to choose a day
+      - uses: actions/upload-artifact@v4
+        with:
+          name: call-lists
+          path: outputs/call_lists/
